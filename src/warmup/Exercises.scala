@@ -25,7 +25,18 @@ object Exercises {
 
    */
   def indexOfMax(a : Array[Int]) : Int = {
-    0
+    if (a.isEmpty) return -1
+
+    var maxValue = a(0)
+    var maxIndex = 0
+
+    for(i<- 1 until a.length){
+      if(a(i) > maxValue){
+        maxValue = a(i)
+        maxIndex = i
+      }
+    }
+    maxIndex
   }
 
 
@@ -46,7 +57,17 @@ object Exercises {
   Indication of solution length : 9 lines
    */
   def averageGrade(grades : String) : Double = {
-    0
+    val gradeArray = grades.split(" ")
+    var sum = 0.0
+    var count = 0
+
+    for(grade<- gradeArray){
+      if(grade !="NS"){
+        sum += grade.toDouble  //converting to double
+        count += 1
+      }
+    }
+    sum/count
   }
 
     /* Assignment 3:
@@ -85,7 +106,20 @@ object Exercises {
 
 
   def collatzLength(start : Long) : Long = {
-    0
+    if( start = 1 ) return 0
+
+    var current = start
+    var length = 0
+
+    while(current != 1){
+      if(current % 2 == 0){
+        current = current / 2;
+      } else{
+        current = 3 * current + 1
+      }
+      length +=1
+    }
+    length
   }
 
 
